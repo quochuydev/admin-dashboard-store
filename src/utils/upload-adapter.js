@@ -1,4 +1,5 @@
 import axios from "axios";
+import config from "./config";
 
 export default class UploadAdapter {
   constructor(loader) {
@@ -11,7 +12,7 @@ export default class UploadAdapter {
     data.append("files", file);
     return new Promise((resolve, reject) => {
       axios({
-        url: `${process.env.REACT_APP_BACKEND_URL}/files`,
+        url: `${config.server}/files`,
         method: "post",
         data,
       })
