@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.703f02f0.chunk.css",
-    "main.js": "/static/js/main.71da5d56.chunk.js",
-    "main.js.map": "/static/js/main.71da5d56.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.bbf0fded.js",
-    "runtime-main.js.map": "/static/js/runtime-main.bbf0fded.js.map",
-    "static/css/2.ba9668d0.chunk.css": "/static/css/2.ba9668d0.chunk.css",
-    "static/js/2.b5b21fae.chunk.js": "/static/js/2.b5b21fae.chunk.js",
-    "static/js/2.b5b21fae.chunk.js.map": "/static/js/2.b5b21fae.chunk.js.map",
-    "static/js/3.8755ffd5.chunk.js": "/static/js/3.8755ffd5.chunk.js",
-    "static/js/3.8755ffd5.chunk.js.map": "/static/js/3.8755ffd5.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.ba9668d0.chunk.css.map": "/static/css/2.ba9668d0.chunk.css.map",
-    "static/css/main.703f02f0.chunk.css.map": "/static/css/main.703f02f0.chunk.css.map",
-    "static/js/2.b5b21fae.chunk.js.LICENSE.txt": "/static/js/2.b5b21fae.chunk.js.LICENSE.txt"
+    "main.css": "/admin-dashboard-store/static/css/main.703f02f0.chunk.css",
+    "main.js": "/admin-dashboard-store/static/js/main.2620d277.chunk.js",
+    "main.js.map": "/admin-dashboard-store/static/js/main.2620d277.chunk.js.map",
+    "runtime-main.js": "/admin-dashboard-store/static/js/runtime-main.6690be89.js",
+    "runtime-main.js.map": "/admin-dashboard-store/static/js/runtime-main.6690be89.js.map",
+    "static/css/2.ba9668d0.chunk.css": "/admin-dashboard-store/static/css/2.ba9668d0.chunk.css",
+    "static/js/2.b5b21fae.chunk.js": "/admin-dashboard-store/static/js/2.b5b21fae.chunk.js",
+    "static/js/2.b5b21fae.chunk.js.map": "/admin-dashboard-store/static/js/2.b5b21fae.chunk.js.map",
+    "static/js/3.8755ffd5.chunk.js": "/admin-dashboard-store/static/js/3.8755ffd5.chunk.js",
+    "static/js/3.8755ffd5.chunk.js.map": "/admin-dashboard-store/static/js/3.8755ffd5.chunk.js.map",
+    "index.html": "/admin-dashboard-store/index.html",
+    "static/css/2.ba9668d0.chunk.css.map": "/admin-dashboard-store/static/css/2.ba9668d0.chunk.css.map",
+    "static/css/main.703f02f0.chunk.css.map": "/admin-dashboard-store/static/css/main.703f02f0.chunk.css.map",
+    "static/js/2.b5b21fae.chunk.js.LICENSE.txt": "/admin-dashboard-store/static/js/2.b5b21fae.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.bbf0fded.js",
+    "static/js/runtime-main.6690be89.js",
     "static/css/2.ba9668d0.chunk.css",
     "static/js/2.b5b21fae.chunk.js",
     "static/css/main.703f02f0.chunk.css",
-    "static/js/main.71da5d56.chunk.js"
+    "static/js/main.2620d277.chunk.js"
   ]
 }
