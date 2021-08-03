@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/admin-dashboard-store/static/css/main.703f02f0.chunk.css",
-    "main.js": "/admin-dashboard-store/static/js/main.f44fe157.chunk.js",
-    "main.js.map": "/admin-dashboard-store/static/js/main.f44fe157.chunk.js.map",
-    "runtime-main.js": "/admin-dashboard-store/static/js/runtime-main.6690be89.js",
-    "runtime-main.js.map": "/admin-dashboard-store/static/js/runtime-main.6690be89.js.map",
+    "main.css": "/admin-dashboard-store/static/css/main.b7f8668c.chunk.css",
+    "main.js": "/admin-dashboard-store/static/js/main.156e2505.chunk.js",
+    "main.js.map": "/admin-dashboard-store/static/js/main.156e2505.chunk.js.map",
+    "runtime-main.js": "/admin-dashboard-store/static/js/runtime-main.6c9f8ec4.js",
+    "runtime-main.js.map": "/admin-dashboard-store/static/js/runtime-main.6c9f8ec4.js.map",
     "static/css/2.ba9668d0.chunk.css": "/admin-dashboard-store/static/css/2.ba9668d0.chunk.css",
-    "static/js/2.b5b21fae.chunk.js": "/admin-dashboard-store/static/js/2.b5b21fae.chunk.js",
-    "static/js/2.b5b21fae.chunk.js.map": "/admin-dashboard-store/static/js/2.b5b21fae.chunk.js.map",
-    "static/js/3.8755ffd5.chunk.js": "/admin-dashboard-store/static/js/3.8755ffd5.chunk.js",
-    "static/js/3.8755ffd5.chunk.js.map": "/admin-dashboard-store/static/js/3.8755ffd5.chunk.js.map",
+    "static/js/2.0b487169.chunk.js": "/admin-dashboard-store/static/js/2.0b487169.chunk.js",
+    "static/js/2.0b487169.chunk.js.map": "/admin-dashboard-store/static/js/2.0b487169.chunk.js.map",
+    "static/js/3.263d8f66.chunk.js": "/admin-dashboard-store/static/js/3.263d8f66.chunk.js",
+    "static/js/3.263d8f66.chunk.js.map": "/admin-dashboard-store/static/js/3.263d8f66.chunk.js.map",
     "index.html": "/admin-dashboard-store/index.html",
     "static/css/2.ba9668d0.chunk.css.map": "/admin-dashboard-store/static/css/2.ba9668d0.chunk.css.map",
-    "static/css/main.703f02f0.chunk.css.map": "/admin-dashboard-store/static/css/main.703f02f0.chunk.css.map",
-    "static/js/2.b5b21fae.chunk.js.LICENSE.txt": "/admin-dashboard-store/static/js/2.b5b21fae.chunk.js.LICENSE.txt"
+    "static/css/main.b7f8668c.chunk.css.map": "/admin-dashboard-store/static/css/main.b7f8668c.chunk.css.map",
+    "static/js/2.0b487169.chunk.js.LICENSE.txt": "/admin-dashboard-store/static/js/2.0b487169.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.6690be89.js",
+    "static/js/runtime-main.6c9f8ec4.js",
     "static/css/2.ba9668d0.chunk.css",
-    "static/js/2.b5b21fae.chunk.js",
-    "static/css/main.703f02f0.chunk.css",
-    "static/js/main.f44fe157.chunk.js"
+    "static/js/2.0b487169.chunk.js",
+    "static/css/main.b7f8668c.chunk.css",
+    "static/js/main.156e2505.chunk.js"
   ]
 }
