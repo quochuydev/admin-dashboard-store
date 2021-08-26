@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { Icon, TextContainer, Autocomplete } from "@shopify/polaris";
-import { SearchMinor } from '@shopify/polaris-icons';
+import { Icon, Button, Autocomplete } from "@shopify/polaris";
+import { PlusMinor } from '@shopify/polaris-icons';
 
 export default React.memo(AutocompleteComponent);
 
@@ -59,14 +59,8 @@ function AutocompleteComponent(props) {
     />
   );
 
-  // TODO change to add new
   const emptyState = (
-    <>
-      <Icon source={SearchMinor} />
-      <div style={{textAlign: 'center'}}>
-        <TextContainer>Could not find any results</TextContainer>
-      </div>
-    </>
+    <Button icon={<Icon source={PlusMinor} />}>Add new: {inputValue}</Button>
   );
 
   return (

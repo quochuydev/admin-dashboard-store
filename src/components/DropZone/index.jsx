@@ -8,6 +8,7 @@ function DropZone(props) {
 
   const handleDropZoneDrop = useCallback(
     async (_dropFiles, acceptedFiles, _rejectedFiles) => {
+      console.log(acceptedFiles);
       if(props.upload){
         const newfiles = await props.upload(acceptedFiles);
         return setFiles((files) => [...files, ...newfiles])

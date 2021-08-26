@@ -2,36 +2,41 @@ import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { Layout, Button, Checkbox, TextField } from "@shopify/polaris";
 
+import config from '../../../../utils/config'
 import Editor from '../../../../components/Editor'
 import DropZone from '../../../../components/DropZone'
 import Variants from './Variants'
 import ProductType from './ProductType'
 import Vendor from './ProductType'
 import Tags from './ProductType'
-import Options from './Options'
+import Active from './Active'
 
 export default function OfficeProductNew() {
   const [data, setData] = useState({
     title: null,
     handle: null,
     description: null,
+    options: [],
+    productType: null,
+    vendor: null,
+    tags: [],
+    isActive: true,
     variants: [
       {
-        image: null,
+        imageId: null,
         title: null,
         sku: null,
+        barcode: null,
         price: 0,
+        options: [],
       },
     ],
-    productType: 'type1',
-    vendor: 'type1',
-    tags: []
   });
 
   useEffect(() => {
     const options = {
       method: "get",
-      url: `${process.env.NEXT_PUBLIC_SERVER_URL}/orders`,
+      url: `${config.server}/orders`,
     }
     axios(options)
       .then(function (response) {
@@ -46,15 +51,16 @@ export default function OfficeProductNew() {
     e.preventDefault()
     console.log(data);
 
-    const options = {
-      method: "get",
-      url: `${process.env.NEXT_PUBLIC_SERVER_URL}/products`,
-    }
-    axios(options)
-      .then(function (response) {
-        console.log(response.data?.items);
+    axios({
+      url: `${config.server}/products`,
+      method: "post",
+      data,
+    })
+      .then((res) => {
+        var result = res.data;
+        console.log("result", result);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -64,27 +70,58 @@ export default function OfficeProductNew() {
     [],
   );
 
-  const [checked, setChecked] = useState(false);
-  const handleChange = useCallback((newChecked) => setChecked(newChecked), []);
+  const addVariant = useCallback(
+    () => {
+      const variants = [...data.variants];
+      variants.push({
+        imageId: null,
+        title: null,
+        sku: null,
+        barcode: null,
+        price: 0,
+        options: [],
+      })
+      setData(data => ({ ...data, variants }))
+    },
+    [data],
+  );
 
   return (
     <>
       <form onSubmit={onSubmit}>
         <Layout>
           <Layout.Section>
-            <p>{JSON.stringify(data)}</p>
             <TextField label="Title" value={data.title} onChange={e => setFieldValue('title', e)} />
             <Editor initValue={data.description} onData={e => setFieldValue('description', e)} />
-            <DropZone product={data} />
-            <Checkbox label="Product has many variants" checked={checked} onChange={handleChange} />
-            <Options product={data} />
+            <DropZone product={data} upload={async (files) => {
+              const data = new FormData();
+              data.append("files", files);
+              return new Promise((resolve, reject) => {
+                axios({
+                  url: `${config.server}/files`,
+                  method: "post",
+                  data,
+                })
+                  .then((res) => {
+                    console.log("resData.files", res.data);
+                    resolve(res.data);
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                    reject(error);
+                  });
+              });
+            }}/>
+            <Button onClick={addVariant}>Add variant</Button>
             <Variants product={data} onData={e => setFieldValue('variants', e)}/>
             <Button submit>Save</Button>
           </Layout.Section>
           <Layout.Section secondary>
+            <Active value={data.isActive} onData={e => setFieldValue('isActive', e)}/>
             <ProductType value={data.productType} onData={e => setFieldValue('productType', ...e)}/>
             <Vendor value={data.vendor} onData={e => setFieldValue('vendor', ...e)}/>
             <Tags value={data.tags} onData={e => setFieldValue('tags', e)} allowMultiple={true}/>
+            <p>{JSON.stringify(data, null, 2)}</p>
           </Layout.Section>
         </Layout>
       </form>

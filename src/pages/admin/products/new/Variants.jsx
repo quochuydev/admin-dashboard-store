@@ -1,23 +1,23 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { useIndexResourceState, IndexTable, Card, TextField, Thumbnail } from "@shopify/polaris";
+import React, { useCallback } from "react";
+import { useIndexResourceState, IndexTable, Card, TextField, Thumbnail, Button } from "@shopify/polaris";
 import { NoteMinor } from '@shopify/polaris-icons';
 
 function Variant(props){
-  const { variant, index, selectedResources, handleChange } = props
+  const { variant, index, selectedResources, handleChange, removeLine } = props
   const { id, title, price, sku, barcode, imageId, image } = variant;
 
   return <IndexTable.Row
-    id={id}
+    id={index}
     key={id}
-    selected={selectedResources.includes(id)}
+    selected={selectedResources.includes(index)}
     position={index}
   >
     <IndexTable.Cell>
         <Thumbnail source={image || NoteMinor} />  
     </IndexTable.Cell>
-    <IndexTable.Cell>
+    {/* <IndexTable.Cell>
         <TextField value={title} onChange={value => handleChange(index, 'title', value)} />
-    </IndexTable.Cell>
+    </IndexTable.Cell> */}
     <IndexTable.Cell>
         <TextField value={String(price)} onChange={value => handleChange(index, 'price', value)} type="number" />
     </IndexTable.Cell>
@@ -26,6 +26,15 @@ function Variant(props){
     </IndexTable.Cell>
     <IndexTable.Cell>
         <TextField value={barcode} onChange={value => handleChange(index, 'barcode', value)} />
+    </IndexTable.Cell>
+    <IndexTable.Cell>
+        <TextField value={variant.options[0]} onChange={value => handleChange(index, 'options', [value, variant.options[1]])} />
+    </IndexTable.Cell>
+    <IndexTable.Cell>
+        <TextField value={variant.options[1]} onChange={value => handleChange(index, 'options', [variant.options[0], value])} />
+    </IndexTable.Cell>
+    <IndexTable.Cell>
+      <Button onClick={() => removeLine(index)}>Remove</Button>
     </IndexTable.Cell>
   </IndexTable.Row>
 }
@@ -64,17 +73,26 @@ function Variants(props) {
   const handleChange = useCallback((index, name, value) => {
     const newVariants = variants.map((e, i) => (i === index ? ({ ...e, [name]: value }) : e));
     props.onData(newVariants);
-  }, [variants]);
+  }, [props, variants]);
+
+
+  const removeLine = (index) => {
+    const newVariants = variants.filter((e, i) => i !== index);
+    props.onData(newVariants);
+  }
 
   const rowMarkup = variants.map(
-    (variant, index) => <Variant {...{ variant, index, selectedResources, handleChange, key: index }}/>
+    (variant, index) => <Variant {...{ key: index, variant, index, selectedResources, handleChange, removeLine }}/>
   );
 
   const headings = [
     {title: 'Image'},
-    {title: 'Title'},
+    // {title: 'Title'},
     {title: 'Price'},
-    {title: 'SKU'}
+    {title: 'SKU'},
+    {title: 'Barcode'},
+    {title: <>Option 1</>},
+    {title: 'Option 2'}
   ]
 
   return (

@@ -21,6 +21,7 @@ const Editor = ({ initValue, readOnly, onData }) => {
       data={initValue}
       onReady={onReady}
       config={{
+        basicEntities: false,
         ckfinder: {
           uploadUrl: `${config.server}/files`,
         },
