@@ -15,3 +15,4 @@ EXPOSE 3001
 CMD ["yarn", "start"]
 
 # docker build -t grocery-admin .
+# docker run -it -p 3001:3001 grocery-admin
