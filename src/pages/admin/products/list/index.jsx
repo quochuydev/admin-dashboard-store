@@ -8,7 +8,7 @@ import config from "../../../../utils/config";
 export default function ProductList() {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
+  const fetchProducts = () => {
     axios({
       method: "get",
       url: `${config.server}/api/products`,
@@ -20,7 +20,25 @@ export default function ProductList() {
       .catch(function (error) {
         console.log(error);
       });
+  };
+
+  useEffect(() => {
+    fetchProducts();
   }, []);
+
+  const removeProduct = (id) => {
+    axios({
+      method: "delete",
+      url: `${config.server}/api/products/${id}`,
+    })
+      .then(function (response) {
+        alert("success");
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert("failed");
+      });
+  };
 
   return (
     <Layout>
@@ -33,6 +51,9 @@ export default function ProductList() {
             <li>{e.price}</li>
             <li>{e.sku}</li>
             <li>{moment(e.createdAt).format("DD-MM-YYYY HH:mm:ss")}</li>
+            <li>
+              <button onClick={() => removeProduct(e._id)}>Remove</button>
+            </li>
           </ul>
         ))}
       </nav>
