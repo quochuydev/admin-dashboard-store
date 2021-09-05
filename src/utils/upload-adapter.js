@@ -12,7 +12,7 @@ export default class UploadAdapter {
     data.append("files", file);
     return new Promise((resolve, reject) => {
       axios({
-        url: `${config.server}/files`,
+        url: `${config.server}/api/files`,
         method: "post",
         data,
       })

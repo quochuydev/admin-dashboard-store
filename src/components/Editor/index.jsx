@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import UploadAdapter from "../../utils/upload-adapter";
@@ -10,7 +10,13 @@ const Editor = ({ initValue, readOnly, onData }) => {
   };
 
   const onReady = (editor) => {
-    editor.plugins.get("FileRepository").createUploadAdapter = function (loader) {
+    if (!editor) {
+      return;
+    }
+
+    editor.plugins.get("FileRepository").createUploadAdapter = function (
+      loader
+    ) {
       return new UploadAdapter(loader);
     };
   };
